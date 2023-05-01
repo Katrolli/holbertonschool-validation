@@ -1,4 +1,4 @@
 apt update
-apt install hugo
 apt install make
+apt install hugo
 make build
