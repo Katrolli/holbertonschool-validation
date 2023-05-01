@@ -1,5 +1,4 @@
 baseURL = "https://example.com/"
 title = "Awesome Inc."
 theme = "ananke"
-
 publishDir = "../dist"
