@@ -15,4 +15,4 @@ Devops
 - test
 - help
 - lint
-- unit-test
+- unit-tests
