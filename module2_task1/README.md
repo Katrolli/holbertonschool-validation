@@ -14,3 +14,4 @@ Devops
 - stop
 - test
 - help
+- lint
