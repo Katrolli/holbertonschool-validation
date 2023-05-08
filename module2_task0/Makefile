@@ -8,11 +8,12 @@ stop: ## kills the process with PID number
 	pkill awesome-api
 
 clean: ## removes file and log
+	pkill awesome-api
 	rm awesome-api awesome-api.log
 
 test: ## test hitting the endpoint
 	curl http://localhost:9999
 	curl http://localhost:9999/health
 
-help: 
+help: ## in case you need help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
