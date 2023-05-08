@@ -2,7 +2,7 @@ build: ## builds the file into a binary go file
 	make lint
 	go build
 
-lint:
+lint: ## check for potential errors
 	golangci-lint run
 
 run: ## runs the api and logs it
