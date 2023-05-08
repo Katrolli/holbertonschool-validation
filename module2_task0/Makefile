@@ -5,7 +5,7 @@ run: ## runs the api and logs it
 	./awesome-api >./awesome-api.log 2>&1 &
 
 stop: ## kills the process with PID number
-	kill "$(pgrep awesome-api)"
+	pkill awesome-api
 
 clean: ## removes file and log
 	rm awesome-api awesome-api.log
