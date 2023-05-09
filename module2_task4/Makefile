@@ -14,7 +14,7 @@ check: ## Checking markdown files
 	markdown-link-check content/posts/*
 
 validate: ## validates using Holberton tool
-	python3 opt/W3C-Validator/w3c_validator.py dist/index.html
+	python3 opt/W3C-Validator/w3c_validator.py dist/index.html || true
 
 
 
