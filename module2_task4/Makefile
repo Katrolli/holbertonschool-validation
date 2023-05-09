@@ -10,11 +10,11 @@ post:	  ## Create a new blog post whose filename and title come from the environ
 	sed -i '/title:/c\title: "$(POST_TITLE)"' content/posts/$(POST_NAME).md
 
 check: ## Checking markdown files
-	markdownlint content/post/*
-	markdown-link-check content/post/*
-
+	markdownlint content/posts/*
+	markdown-link-check /content/posts/*
+	
 validate: ## validates using Holberton tool
-	python3 /opt/W3C-Validator/w3c_validator.py /dist/index.html
+	python3 opt/W3C-Validator/w3c_validator.py dist/index.html
 
 
 
