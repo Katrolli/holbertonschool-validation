@@ -1,4 +1,8 @@
-build: check go-build ## compile the source code 
+build:    ## Generate the website from the markdown and configuration files in the directory dist/
+	make check
+	make lint
+	hugo > /dev/null 2>&1
+	go build
 	hugo
 
 clean:	  ## Cleanup the content of the directoy dist/
@@ -34,9 +38,6 @@ unit-tests: ## run unit-tests
 
 integration-tests: ## run intregrated tests
 	go test -v  -coverprofile=coverage-integrations.out
-
-go-build: ## build the api
-	go build
 
 
 help: ## Show this help usage
