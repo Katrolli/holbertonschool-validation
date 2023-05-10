@@ -5,7 +5,7 @@ build:    ## Generate the website from the markdown and configuration files in t
 	hugo > /dev/null 2>&1
 
 clean:	  ## Cleanup the content of the directoy dist/
-	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
+	rm -rf dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
 	make stop
 
 post:	  ## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
@@ -20,6 +20,7 @@ validate: ## validates using Holberton tool
 
 run: ## runs the api and logs it
 	./awesome-api > ./awesome-api.log 2>&1 &
+	hugo server
 
 stop: ## kills the process with PID number
 	pkill awesome-api
