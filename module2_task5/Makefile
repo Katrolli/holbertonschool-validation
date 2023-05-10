@@ -1,8 +1,10 @@
-build:   ## Generate the website from the markdown and configuration files in the directory dist/
-	go build
+build: go-build  ## Generate the website from the markdown and configuration files in the directory dist/
 	hugo > /dev/null 2>&1
 	make check
 	make lint
+
+go-build: ##karllek
+	go build
 
 clean:	  ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
