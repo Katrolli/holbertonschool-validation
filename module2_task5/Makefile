@@ -1,6 +1,6 @@
 build:   ## Generate the website from the markdown and configuration files in the directory dist/
-	hugo > /dev/null 2>&1
 	go build
+	hugo > /dev/null 2>&1
 	make check
 	make lint
 
