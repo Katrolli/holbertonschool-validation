@@ -1,4 +1,4 @@
-build: check go-build lint    ## Generate the website from the markdown and configuration files in the directory dist/
+build: check lint    ## Generate the website from the markdown and configuration files in the directory dist/
 	make lint
 	hugo > /dev/null 2>&1
 	go build
