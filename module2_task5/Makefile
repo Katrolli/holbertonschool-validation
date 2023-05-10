@@ -20,7 +20,6 @@ validate: ## validates using Holberton tool
 
 run: ## runs the api and logs it
 	./awesome-api > ./awesome-api.log 2>&1 &
-	hugo server
 
 stop: ## kills the process with PID number
 	pkill awesome-api
