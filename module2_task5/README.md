@@ -22,3 +22,4 @@ Devops
 - validate
 - test
 - unit-tests
+- integration-tests
