@@ -23,3 +23,4 @@ Devops
 - test
 - unit-tests
 - integration-tests
+- lint
