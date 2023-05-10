@@ -1,7 +1,9 @@
-build: check lint    ## Generate the website from the markdown and configuration files in the directory dist/
+build:    ## Generate the website from the markdown and configuration files in the directory dist/
+	make check
+	make lint
 	hugo > /dev/null 2>&1
 	go build
-	hugo-build
+	hugo
 
 clean:	  ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
