@@ -1,9 +1,8 @@
-build:    ## Generate the website from the markdown and configuration files in the directory dist/
-	make check
+build: check go-build lint    ## Generate the website from the markdown and configuration files in the directory dist/
 	make lint
 	hugo > /dev/null 2>&1
 	go build
-	hugo
+	hugo-build
 
 clean:	  ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
@@ -39,12 +38,11 @@ unit-tests: ## run unit-tests
 integration-tests: ## run intregrated tests
 	go test -v  -coverprofile=coverage-integrations.out
 
+go-build: ## build the api
+	go build
+
 
 help: ## Show this help usage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
-
-
-
-
 
 
