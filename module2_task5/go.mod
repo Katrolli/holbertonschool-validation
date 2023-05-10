@@ -1,4 +1,4 @@
-module github.com/KristiSeraj/holbertonschool-validation/module1_task0
+module github.com/Katrolli/holbertonschool-validation/module2_task5
 
 go 1.18
 

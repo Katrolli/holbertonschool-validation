@@ -1,9 +1,5 @@
-build:    ## Generate the website from the markdown and configuration files in the directory dist/
-	make check
-	make lint
-	make run
-	hugo > /dev/null 2>&1
-	go build
+build: check go-build ## compile the source code 
+	hugo
 
 clean:	  ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
@@ -14,8 +10,7 @@ post:	  ## Create a new blog post whose filename and title come from the environ
 	sed -i '/title:/c\title: "$(POST_TITLE)"' content/posts/$(POST_NAME).md
 
 check: ## Checking markdown files
-	markdownlint content/posts/*
-	markdown-link-check content/posts/*
+	markdownlint content/ && markdown-link-check content/posts/*.md
 
 validate: ## validates using Holberton tool
 	python3 opt/W3C-Validator/w3c_validator.py dist/index.html || true
@@ -40,6 +35,15 @@ unit-tests: ## run unit-tests
 integration-tests: ## run intregrated tests
 	go test -v  -coverprofile=coverage-integrations.out
 
+go-build: ## build the api
+	go build
+
 
 help: ## Show this help usage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+
+
+
+
+
+
