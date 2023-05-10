@@ -39,9 +39,6 @@ unit-tests: ## run unit-tests
 integration-tests: ## run intregrated tests
 	go test -v  -coverprofile=coverage-integrations.out
 
-go-build: ## build the api
-	go build
-
 
 help: ## Show this help usage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
