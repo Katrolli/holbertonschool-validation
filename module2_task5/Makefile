@@ -17,10 +17,10 @@ check: ## Checking markdown files
 	markdown-link-check content/posts/*
 
 validate: ## validates using Holberton tool
-	python3 opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
+	python3 opt/W3C-Validator/w3c_validator.py dist/index.html || true
 
 run: ## runs the api and logs it
-	./awesome-api >./awesome-api.log 2>&1 &
+	awesome-api > awesome-api.log 2>&1 &
 
 stop: ## kills the process with PID number
 	pkill awesome-api
