@@ -26,7 +26,7 @@ stop: ## kills the process with PID number
 	pkill awesome-api
 
 lint: ## check for potential errors
-	golangci-lint awesome-api
+	golangci-lint run
 
 test: ## test hitting the endpoint
 	make unit-tests
