@@ -31,5 +31,5 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: awesome-website.zip
+          files: 'awesome-website.zip'
           tag_name: 1.0.0
