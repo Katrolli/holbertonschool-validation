@@ -24,4 +24,6 @@
 
 - validate: Validate the file dist/index.html using the command line Holberton’s W3C Validator.
 
+- workflow : using github actions to test
+
 - help: Display help message.
