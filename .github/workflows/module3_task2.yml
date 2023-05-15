@@ -15,7 +15,7 @@ jobs:
       - name: Install golangci-lint
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.39.0
-      - run: sudo ./module3_task1/setup.sh
+      - run: sudo ./module3_task2/setup.sh
       - run: make test -C  module3_task2
       - run: make build -C  module3_task2
       - run: make package -C module3_task2
