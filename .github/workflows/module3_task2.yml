@@ -9,6 +9,11 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          # Optional: version of golangci-lint to use in form of v1.2 or v1.2.3 or `latest` to use the latest version
+          version: v1.29
       - run: sudo ./module3_task1/setup.sh
       - run: make test -C  module3_task2
       - run: make build -C  module3_task2
