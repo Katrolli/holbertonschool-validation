@@ -48,7 +48,7 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
 
 package: ## zips files
-	zip -r awesome-api.zip awesome-api ./dist
+	zip -r awesome-website.zip awesome-api ./dist
 
 help:	## Show this help usage.
 	@sed -ne '/@sed/!s/## //p' $(MAKEFILE_LIST)
