@@ -25,7 +25,7 @@ jobs:
         run: sudo npm install -g markdownlint-cli
       - name: Install Markdown Link Check
         run: sudo npm install -g markdown-link-check
-      - run: sudo ./module3_task1/setup.sh
+      - run: sudo ./module3_task2/setup.sh
       - run: make test -C  module3_task2
       - run: make build -C  module3_task2
       - run: make package -C module3_task2
