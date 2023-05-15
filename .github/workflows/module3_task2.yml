@@ -9,11 +9,22 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.20
       - name: Install golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
           version: v1.39
           working-directory: module3_task2
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.111.3'
+      - name: Install Markdownlint
+        run: sudo npm install -g markdownlint-cli
+      - name: Install Markdown Link Check
+        run: sudo npm install -g markdown-link-check
       - run: sudo ./module3_task1/setup.sh
       - run: make test -C  module3_task2
       - run: make build -C  module3_task2
