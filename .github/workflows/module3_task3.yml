@@ -31,7 +31,7 @@ jobs:
       - name: Get DEPLOY.md contents
         id: get-md
         run: |
-          CONTENT=$(cat DEPLOY.md)
+          CONTENT=$(cat module3_task3/DEPLOY.md)
           CONTENT="${CONTENT//'%'/'%25'}"
           CONTENT="${CONTENT//$'\n'/'%0A'}"
           CONTENT="${CONTENT//$'\r'/'%0D'}"
