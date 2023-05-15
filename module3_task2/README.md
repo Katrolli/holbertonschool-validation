@@ -1,31 +1,47 @@
-## Prerequisites
+# Prerequisites
 
 ## Lifecycle
 
-- build: compile the source code of the application to a binary named awesome-api (the name awesome-api comes from the command go mod init github.com/<your github handle>/awesome-api) with the command go build. The first build may takes some times.
+The application lifecycle includes several steps:
 
-- run: Run the application in background by executing the binary awesome-api, and write logs into a file named awesome-api.log with the command ./awesome-api >./awesome-api.log 2>&1 &.
+- `build`: Compile the source code to a binary named `awesome-api` with `go build`.
 
-- stop: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application. For instance: kill "$(pgrep awesome-api)".
+  The name `awesome-api` is from `go mod init github.com/<your github handle>/awesome-api`.
 
-- post: Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
+  Note: the first build may take some time.
 
-- clean: Stop the application. Delete the binary awesome-api and the log file awesome-api.log
+- `run`: Run the application in the background by executing the `awesome-api` binary.
 
-- test: You want to test it to ensure that it behaves as expected.
+  Logs are written into a file named `awesome-api.log` with this command:
 
-- unit-tests: Run unit tests.
+  `./awesome-api >./awesome-api.log 2>&1 &`.
 
-- integration-tests: Run integration tests.
+- `stop`: Stop the application with `kill XXXXX` where `XXXXX`
+  is the Process ID of the application.
 
-- lint: Lint go lang code.
+  For instance, `kill "$(pgrep awesome-api)"`.
 
-- check: Lint markdonw source, check dead links.
+- `post`: Create a new blog post.
+  The filename and title come from `POST_TITLE` and `POST_NAME`.
 
-- validate: Validate the file dist/index.html using the command line Holberton’s W3C Validator.
+- `clean`: Stop the application, delete `awesome-api` binary
+  and `awesome-api.log` file.
 
-- workflow : using github actions to test
+- `test`: Run tests to ensure that the application behaves as expected.
 
-- package : zips necesseary files
+- `unit-tests`: Run unit tests.
 
-- help: Display help message.
+- `integration-tests`: Run integration tests.
+
+- `lint`: Lint Go lang code.
+
+- `check`: Lint markdown source and check for dead links.
+
+- `validate`: Validate `dist/index.html` using the
+  command line Holberton’s W3C Validator.
+
+- `workflow`: Use GitHub Actions for testing.
+
+- `package`: Zip necessary files.
+
+- `help`: Display help message.

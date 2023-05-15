@@ -14,31 +14,31 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository:
 
-   ```
+   ```shell
    git clone https://github.com/your-username/your-repo.git
    ```
 
 2. Navigate into the directory:
 
-   ```
+   ```shell
    cd your-repo
    ```
 
 3. Run the setup script:
 
-   ```
+   ```shell
    ./setup.sh
    ```
 
 4. Build the application:
 
-   ```
+   ```shell
    make build
    ```
 
 5. Run the application:
 
-   ```
+   ```shell
    make run
    ```
 
