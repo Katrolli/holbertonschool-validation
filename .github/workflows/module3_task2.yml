@@ -13,6 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sudo ./module3_task1/setup.sh
+      - name: Install golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: v1.39
       - run: make test -C  module3_task2
       - run: make build -C  module3_task2
       - run: make package -C module3_task2
