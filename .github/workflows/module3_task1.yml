@@ -7,7 +7,7 @@ jobs:
   job1:
     runs-on: ubuntu-22.04
     steps:
-      - uses: action/checkout@v3
+      - uses: actions/checkout@v3
       - run: sudo ./module3_task1/setup.sh
       - run: make test -C  module3_task1
       - run: make build -C  module3_task1
