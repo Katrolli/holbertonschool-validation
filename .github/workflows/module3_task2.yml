@@ -23,8 +23,8 @@ jobs:
       #       hugo-version: '0.111.3'
       #   - name: Install Markdownlint
       #     run: sudo npm install -g markdownlint-cli
-      - name: Install Markdown Link Check
-        run: sudo npm install -g markdown-link-check
+      #   - name: Install Markdown Link Check
+      #     run: sudo npm install -g markdown-link-check
       - run: sudo ./module3_task2/setup.sh
       - run: make test -C  module3_task2
       - run: make build -C  module3_task2
