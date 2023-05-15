@@ -1,31 +1,45 @@
+# Deployment Guide
+
+This guide will provide step-by-step instructions on how to deploy the application.
+
 ## Prerequisites
 
-## Lifecycle
+Ensure you have the following installed on your machine:
 
-- build: compile the source code of the application to a binary named awesome-api (the name awesome-api comes from the command go mod init github.com/<your github handle>/awesome-api) with the command go build. The first build may takes some times.
+- Go 1.20
+- Docker
+- Make
 
-- run: Run the application in background by executing the binary awesome-api, and write logs into a file named awesome-api.log with the command ./awesome-api >./awesome-api.log 2>&1 &.
+## Deployment Steps
 
-- stop: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application. For instance: kill "$(pgrep awesome-api)".
+1. Clone the repository:
 
-- post: Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
+   ```
+   git clone https://github.com/your-username/your-repo.git
+   ```
 
-- clean: Stop the application. Delete the binary awesome-api and the log file awesome-api.log
+2. Navigate into the directory:
 
-- test: You want to test it to ensure that it behaves as expected.
+   ```
+   cd your-repo
+   ```
 
-- unit-tests: Run unit tests.
+3. Run the setup script:
 
-- integration-tests: Run integration tests.
+   ```
+   ./setup.sh
+   ```
 
-- lint: Lint go lang code.
+4. Build the application:
 
-- check: Lint markdonw source, check dead links.
+   ```
+   make build
+   ```
 
-- validate: Validate the file dist/index.html using the command line Holberton’s W3C Validator.
+5. Run the application:
 
-- workflow : using github actions to test
+   ```
+   make run
+   ```
 
-- package : zips necesseary files
-
-- help: Display help message.
+6. Access the application at: `http://localhost:9999`
