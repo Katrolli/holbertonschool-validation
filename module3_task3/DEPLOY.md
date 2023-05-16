@@ -51,5 +51,5 @@ Ensure you have the following installed on your machine:
 
 ## Tag
 
-2. TAG:
+1. TAG:
    make tag
