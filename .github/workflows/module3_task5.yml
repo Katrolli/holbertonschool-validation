@@ -47,7 +47,8 @@ jobs:
           permissions:
           contents: write
       - name: Deploy to Netlify
-        if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+        if: |
+          github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './dist'
