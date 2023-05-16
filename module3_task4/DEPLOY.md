@@ -47,9 +47,9 @@ Ensure you have the following installed on your machine:
 ## Zip
 
 1. Zip:
-   make zip
+   Zippis the filez
 
 ## Tag
 
 1. TAG:
-   make tag
+   Tags used to mark release
