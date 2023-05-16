@@ -43,3 +43,7 @@ Ensure you have the following installed on your machine:
    ```
 
 6. Access the application at: `http://localhost:9999`
+
+7. Zip
+
+8. Tag
