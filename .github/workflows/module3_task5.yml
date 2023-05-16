@@ -28,8 +28,6 @@ jobs:
       - run: make build -C  module3_task5
       - run: make package -C module3_task5
       - run: make run -C  module3_task5
-      - run: make stop -C  module3_task5
-      - run: make clean -C  module3_task5
       - name: Get DEPLOY.md contents
         id: get-md
         run: |
