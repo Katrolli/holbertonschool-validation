@@ -6,7 +6,7 @@ This guide will provide step-by-step instructions on how to deploy the applicati
 
 Ensure you have the following installed on your machine:
 
-- Go 1.20
+- Go 1.17
 - Docker
 - Make
 
@@ -46,8 +46,10 @@ Ensure you have the following installed on your machine:
 
 ## Zip
 
-1. Zip
+1. Zip:
+   make zip
 
 ## Tag
 
-2.TAG
+2. TAG:
+   make tag
