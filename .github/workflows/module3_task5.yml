@@ -56,6 +56,5 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NETLIFY_AUTH_TOKEN: f9922ae5-aa2a-4123-a3f4-18b35c833390
-          NETLIFY_SITE_ID: HSvMReU4p3Rc_rZHO-GHqrQnCO70xdo3t2qzQ-9jSYw
+          production-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          production-site-id: ${{ secrets.NETLIFY_SITE_ID }}
