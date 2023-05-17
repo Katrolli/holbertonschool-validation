@@ -15,15 +15,16 @@ jobs:
         run: sudo npm install -g markdownlint-cli
       - name: Install Markdown Link Check
         run: sudo npm install -g markdown-link-check
-      - run: sudo ./module4_task0/setup.sh
-      - run: make test -C  module4_task0
-      - run: make build -C  module4_task0
-      - run: make package -C module4_task0
-      - run: make run -C  module4_task0
+      - run: cd module4_task0
+      - run: sudo ./setup.sh
+      - run: make test
+      - run: make build
+      - run: make package
+      - run: make run
       - name: Get DEPLOY.md contents
         id: get-md
         run: |
-          CONTENT=$(cat module4_task0/DEPLOY.md)
+          CONTENT=$(cat DEPLOY.md)
           CONTENT="${CONTENT//'%'/'%25'}"
           CONTENT="${CONTENT//$'\n'/'%0A'}"
           CONTENT="${CONTENT//$'\r'/'%0D'}"
@@ -31,7 +32,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: module4_task0/awesome-website.zip
+          files: awesome-website.zip
           tag_name: 1.0.0
           body: ${{ steps.get-md.outputs.body }}
       - name: Deploy to Netlify
@@ -39,7 +40,7 @@ jobs:
           github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: 'module4_task0/dist'
+          publish-dir: 'dist'
           production-branch: main
           deploy-message: 'Deploy from GitHub Actions'
           enable-pull-request-comment: true

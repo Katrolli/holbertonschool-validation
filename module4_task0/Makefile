@@ -1,4 +1,4 @@
-DOCKER= docker run -v "$(PWD)/module4_task0:/go" -w "/go" golang:1.15.8-buster go
+DOCKER= docker run -v "$(PWD):/go/src/app" -w "/go/src/app" -i -t golang:1.15.8-buster go
 TARGET=awesome-api
 RM=rm -rf
 MAKE=make
