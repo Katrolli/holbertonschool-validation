@@ -22,7 +22,8 @@ jobs:
       - run: |
           cd module4_task2
           make lint
-      - run: |
+      - name: Docker lint
+        run: |
           cd module4_task2
           make docker-tests
       - run: |
