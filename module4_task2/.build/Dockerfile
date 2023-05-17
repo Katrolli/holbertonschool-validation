@@ -25,6 +25,3 @@ WORKDIR /go/src/app
 
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . .
-
-# Download dependencies
-RUN go mod download
