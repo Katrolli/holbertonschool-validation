@@ -26,6 +26,9 @@ jobs:
         run: |
           cd module4_task2
           make docker-tests
+         run: |
+          cd module4_task2
+          make docker-lint
       - run: |
           cd module4_task2
           make build
