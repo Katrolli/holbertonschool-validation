@@ -44,4 +44,6 @@ The application lifecycle includes several steps:
 
 - `package`: Zip necessary files.
 
+- `build-docker`: Builds docker container
+
 - `help`: Display help message.
