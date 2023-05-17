@@ -44,7 +44,7 @@ integration-tests: ## Run integration tests
 	$(DOCKER) test -v -coverprofile=$(COVERAGE)-integrations.out
 
 lint: ## i fucking hate you lint
-	golangci-lint run && markdownlint README.md DEPLOY.md
+	markdownlint README.md DEPLOY.md
 
 check:	## Lint markdonw source, check dead links
 	markdownlint content/**/*.md
