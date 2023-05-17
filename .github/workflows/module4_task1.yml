@@ -24,6 +24,8 @@ jobs:
           make build
       - run: make package -C module4_task1
       - run: make run -C  module4_task1
+      - run: make unit-tests -C module4_task1
+      - run: make integration-tests -C module4_task1
       - name: Get DEPLOY.md contents
         id: get-md
         run: |
