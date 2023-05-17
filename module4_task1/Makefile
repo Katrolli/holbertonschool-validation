@@ -8,7 +8,7 @@ HUGO=hugo
 
 build: build-docker	## Generate the source code of the application to binary.
 	$(MAKE) lint
-	$(DOCKER) go mod init
+	$(DOCKER) go mod tidy
 	$(MAKE) check && make hugo-build && make go-build
 
 build-docker: ## builds docker
