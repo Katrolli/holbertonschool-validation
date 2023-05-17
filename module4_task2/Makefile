@@ -64,8 +64,8 @@ check:	## Lint markdonw source, check dead links
 validate:	## Validate the file dist/index.html using the command line Holberton’s W3C Validator.
 	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
 
-docker-tests: # New target for Docker structure tests
-	$(CST) test --image $(DOCKER_IMAGE) --config .build/cst.yml
+docker-tests: ## Run container structure tests
+    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config .build/cst.yml
 
 package: ## zips files
 	zip -r awesome-website.zip awesome-api ./dist
