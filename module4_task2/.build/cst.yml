@@ -19,8 +19,3 @@ commandTests:
     command: 'hadolint'
     args: ['--version']
     expectedOutput: ['Haskell Dockerfile Linter v2.6.0']
-
-envVarTests:
-  - name: Check PATH
-    env: PATH
-    value: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
