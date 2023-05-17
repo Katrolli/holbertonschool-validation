@@ -19,14 +19,14 @@ jobs:
       - run: |
           cd module4_task2
           make build-docker
-      - run: |
+      - name: Lint
+        run: |
           cd module4_task2
           make lint
       - name: Docker lint
         run: |
           cd module4_task2
           make docker-tests
-         run: |
           cd module4_task2
           make docker-lint
       - run: |
