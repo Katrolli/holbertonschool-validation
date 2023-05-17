@@ -1,11 +1,11 @@
-DOCKER=docker run golang:1.15.8-buster go
+DOCKER= docker run -v "$(PWD):/go" -w "/go" golang:1.15.8-buster go
 TARGET=awesome-api
 RM=rm -rf
 MAKE=make
 COVERAGE=coverage
 HUGO=hugo
 
-build:	## Generate the source code of the application to a binary.
+build:	## Generate the source code of the application to binary.
 	$(MAKE) lint
 	$(DOCKER) mod tidy
 	$(MAKE) check && make hugo-build && make go-build

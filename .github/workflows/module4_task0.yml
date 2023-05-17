@@ -34,8 +34,6 @@ jobs:
           files: module4_task0/awesome-website.zip
           tag_name: 1.0.0
           body: ${{ steps.get-md.outputs.body }}
-          permissions:
-          contents: write
       - name: Deploy to Netlify
         if: |
           github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
