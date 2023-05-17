@@ -18,4 +18,4 @@ commandTests:
   - name: 'hadolint version'
     command: 'hadolint'
     args: ['--version']
-    expectedOutput: ['Haskell Dockerfile Linter v2.6.0']
+    expectedOutput: ['Haskell Dockerfile Linter 2.6.0']
