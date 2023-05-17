@@ -20,8 +20,8 @@ go-build: #builds go files
 hugo-build: # builds Hugo
 	$(HUGO)
 
-run: build ## runs api
-	$(DOCKER) ./$(TARGET) >./$(TARGET).log 2>&1 &
+run:  ## runs api
+	/$(TARGET) >./$(TARGET).log 2>&1 &
 
 post:  ## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
 	$(HUGO) new posts/$(POST_NAME).md
