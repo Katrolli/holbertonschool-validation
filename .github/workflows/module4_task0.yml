@@ -16,7 +16,9 @@ jobs:
       - name: Install Markdown Link Check
         run: sudo npm install -g markdown-link-check
       - run: sudo ./module4_task0/setup.sh
-      - run: make test -C  module4_task0
+      - run: |
+          cd module4_task0
+          make test
       - run: make build -C  module4_task0
       - run: make package -C module4_task0
       - run: make run -C  module4_task0
