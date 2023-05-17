@@ -48,7 +48,8 @@ unit-tests: ## Run unit tests
 integration-tests: ## Run integration tests
 	$(DOCKER) go test -v -coverprofile=$(COVERAGE)-integrations.out
 
-lint: docker-lint markdown-lint ## Run all lint checks
+lint: ## Run all lint checks
+	docker run --rm -i hadolint/hadolint < .build/Dockerfile
 
 docker-lint: # New target for Dockerfile linting
 	$(DOCKER_LINT) .build/Dockerfile
