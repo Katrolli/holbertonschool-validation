@@ -46,4 +46,6 @@ The application lifecycle includes several steps:
 
 - `build-docker`: Builds docker container
 
+- `docker-tests`: Checks dockers lint
+
 - `help`: Display help message.
