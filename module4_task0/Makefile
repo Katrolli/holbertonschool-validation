@@ -1,24 +1,25 @@
-DOCKER= docker run -v "${PWD}:/go/src/app" -w "/go/src/app" golang:1.15.8-buster go
+DOCKER=docker run -v "${PWD}:/go/src/app" -w "/go/src/app" golang:1.15.8-buster go
+GO=go
 TARGET=awesome-api
 RM=rm -rf
 MAKE=make
 COVERAGE=coverage
 HUGO=hugo
 
-build:	## Generate the source code of the application to binary.
-	$(DOCKER) mod tidy
-	$(MAKE) check && make hugo-build && make go-build
+build:	## Generate the source code of the application to a binary.
+	make hugo-build
+	make go-build
 
-go-build:
+hugo-build: ## runs hugo
+	${HUGO}
+
+go-build: ## runs go build
 	$(DOCKER) build -o $(TARGET)
 
-hugo-build:
-	$(HUGO)
-
-run:   ## Run the application in background by executing the binary.
+run:	## Run the application in background by executing the binary.
 	./$(TARGET) >./$(TARGET).log 2>&1 &
 
-post:  ## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
+post:	## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
 	$(HUGO) new posts/$(POST_NAME).md
 	sed -i '2s/.*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
@@ -29,7 +30,7 @@ clean:	## Stop the application. Delete the binary and the log file.
 	@if pgrep -x $(TARGET) > /dev/null; then \
 		pkill $(TARGET); \
 	fi
-	@$(RM) $(TARGET) $(TARGET).log $(COVERAGE)-units.out $(COVERAGE)-integrations.out dist/ *~
+	@$(RM) $(TARGET) $(TARGET).log $(COVERAGE)-units.out $(COVERAGE)-integrations.out awesome-website.zip dist/ *~
 
 test:	## Test the application.
 	$(MAKE) unit-tests
@@ -37,12 +38,12 @@ test:	## Test the application.
 	$(MAKE) validate
 
 unit-tests: ## Run unit tests
-	$(DOCKER) test -v -short -coverprofile=$(COVERAGE)-units.out
+	${DOCKER} test -v -short -coverprofile=$(COVERAGE)-units.out
 
 integration-tests: ## Run integration tests
-	$(DOCKER) test -v -coverprofile=$(COVERAGE)-integrations.out
+	${DOCKER} test -v -coverprofile=$(COVERAGE)-integrations.out
 
-lint: ## i fucking hate you lint
+lint:	## Lint go lang code
 	markdownlint README.md DEPLOY.md
 
 check:	## Lint markdonw source, check dead links
@@ -50,10 +51,10 @@ check:	## Lint markdonw source, check dead links
 	find content -name \*.md -print0 | xargs -0 -n1 markdown-link-check
 
 validate:	## Validate the file dist/index.html using the command line Holberton’s W3C Validator.
-	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
+	python3 ./opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
 
-package: ## zips files
-	zip -r awesome-website.zip awesome-api ./dist
+package: ## Show this help usage.
+	zip -r awesome-website.zip dist awesome-api
 
 help:	## Show this help usage.
 	@sed -ne '/@sed/!s/## //p' $(MAKEFILE_LIST)
