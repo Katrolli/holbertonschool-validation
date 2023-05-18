@@ -23,13 +23,11 @@ jobs:
         run: |
           cd module4_task2
           make lint
-
       - name: Install hadolint
         run: |
           wget https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64
           chmod +x hadolint-Linux-x86_64
           sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint
-
       - name: Docker lint
         run: |
           cd module4_task2
