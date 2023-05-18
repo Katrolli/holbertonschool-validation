@@ -4,7 +4,7 @@
 FROM golang:1.15.8-alpine
 
 # Install curl
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl=latest
 
 # Set shell to bash
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
