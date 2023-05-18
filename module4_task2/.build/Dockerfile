@@ -21,7 +21,7 @@ RUN curl -sSfL -o /usr/local/bin/container-structure-test https://storage.google
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0
 
 # Install Hugo
-RUN apk add --no-cache hugo=0.87.0
+RUN apk add --no-cache hugo=0.79.1
 
 # Set the working directory in the container
 WORKDIR /go/src/app
