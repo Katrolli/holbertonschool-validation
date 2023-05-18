@@ -4,7 +4,7 @@
 FROM golang:1.15.8-alpine
 
 # Set shell to bash
-SHELL ["/bin/sh", "-o", "pipefail", "-c"]
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install bash
 RUN apk add --no-cache bash=latest
