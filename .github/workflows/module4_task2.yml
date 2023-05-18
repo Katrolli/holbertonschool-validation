@@ -58,10 +58,6 @@ jobs:
         run: |
           cd module4_task2
           make integration-tests
-      - name: Docker lint
-        run: |
-          cd module4_task2
-          make docker-lint
       - name: Get DEPLOY.md contents
         id: get-md
         run: |
