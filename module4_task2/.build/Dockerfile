@@ -3,12 +3,11 @@
 # Use an existing docker image as a base
 FROM golang:1.15.8-alpine
 
-# Set shell to bash
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
 # Install bash
 RUN apk add --no-cache bash=5.2.15-r3
 
+# Set shell to bash
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install hadolint
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
     && chmod +x /usr/local/bin/hadolint
