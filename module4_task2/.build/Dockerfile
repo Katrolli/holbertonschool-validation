@@ -7,7 +7,7 @@ FROM golang:1.15.8-alpine
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install bash
-RUN apk add --no-cache bash@latest
+RUN apk add --no-cache ash=latest
 
 # Install hadolint
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
@@ -21,7 +21,7 @@ RUN curl -sSfL -o /usr/local/bin/container-structure-test https://storage.google
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0
 
 # Install Hugo
-RUN apk add --no-cache hugo@latest
+RUN apk add --no-cache hugo=latest
 # Set the working directory in the container
 WORKDIR /go/src/app
 
