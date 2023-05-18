@@ -30,10 +30,6 @@ jobs:
         run: |
           cd module4_task2
           make lint
-      - name: Run Docker tests
-        run: |
-          cd module4_task2
-          make docker-tests
       - name: Run container structure tests
         run: |
           cd module4_task2
@@ -42,6 +38,10 @@ jobs:
         run: |
           cd module4_task2
           make build
+      - name: Run Docker tests
+        run: |
+          cd module4_task2
+          make docker-tests
       - name: Package
         run: make package -C module4_task2
       - name: Run
