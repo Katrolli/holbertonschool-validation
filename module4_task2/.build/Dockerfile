@@ -20,7 +20,7 @@ FROM golang:1.15.8-alpine
 # hadolint ignore=DL3018
 RUN apk add --no-cache hugo
 
-# hadolint ingore=DL3045
+# hadolint ignore=DL3045
 COPY --from=builder /go/src/app .
 
 # Set the working directory in the container
