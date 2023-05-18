@@ -49,7 +49,7 @@ integration-tests: ## Run integration tests
 	$(DOCKER) go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 lint: ## Run all lint checks
-	docker run --rm -i hadolint/hadolint < .build/Dockerfile
+	    $(DOCKER_LINT) .build/Dockerfile
 
 docker-lint: # New target for Dockerfile linting
 	$(DOCKER_LINT) .build/Dockerfile
