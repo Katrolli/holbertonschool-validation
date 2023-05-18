@@ -1,7 +1,7 @@
 # .build/Dockerfile
 
 # Use an existing docker image as a base
-FROM golang:1.15.8-buster
+FROM golang:1.15.8-alpine
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
