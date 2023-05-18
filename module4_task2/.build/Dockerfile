@@ -7,7 +7,8 @@ RUN apk add --no-cache curl bash gcc musl-dev \
     && chmod +x /usr/local/bin/hadolint \
     && curl -sSfL -o /usr/local/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 \
     && chmod +x /usr/local/bin/container-structure-test \
-    && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0
+    && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0 \
+    && apk add --no-cache hugo
 
 WORKDIR /go/src/app
 COPY . .
