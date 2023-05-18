@@ -16,6 +16,11 @@ jobs:
       - name: Install Markdown Link Check
         run: sudo npm install -g markdown-link-check
       - run: sudo ./module4_task2/setup.sh
+      - name: Install hadolint
+        run: |
+          wget https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64
+          chmod +x hadolint-Linux-x86_64
+          sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint
       - run: |
           cd module4_task2
           make build-docker
@@ -23,11 +28,6 @@ jobs:
         run: |
           cd module4_task2
           make lint
-      - name: Install hadolint
-        run: |
-          wget https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64
-          chmod +x hadolint-Linux-x86_64
-          sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint
       - run: |
           cd module4_task2
           make docker-tests
