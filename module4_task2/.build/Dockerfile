@@ -20,7 +20,9 @@ FROM golang:1.15.8-alpine
 # hadolint ignore=DL3018
 RUN apk add --no-cache hugo curl \
     && curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
-    && chmod +x /usr/local/bin/hadolint
+    && chmod +x /usr/local/bin/hadolint \
+    && curl -sSfL -o /usr/local/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 \
+    && chmod +x /usr/local/bin/container-structure-test
 
 # hadolint ignore=DL3045
 COPY --from=builder /go/src/app .
