@@ -26,29 +26,36 @@ jobs:
           wget https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
           chmod +x container-structure-test-linux-amd64
           sudo mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
-       - name: Lint
-         run: |
+      - name: Lint
+        run: |
           cd module4_task2
           make lint
-       - run: |
+      - name: Build Docker
+        run: |
           cd module4_task2
           make build-docker
       - name: Run container structure tests
         run: |
           cd module4_task2
           container-structure-test test --image awesome:build --config .build/cst.yml
-      - run: |
+      - name: Run Docker tests
+        run: |
           cd module4_task2
           make docker-tests
-      - run: |
+      - name: Build
+        run: |
           cd module4_task2
           make build
-      - run: make package -C module4_task2
-      - run: make run -C  module4_task2
-      - run: |
+      - name: Package
+        run: make package -C module4_task2
+      - name: Run
+        run: make run -C  module4_task2
+      - name: Run Unit tests
+        run: |
           cd module4_task2
           make unit-tests
-      - run: |
+      - name: Run Integration tests
+        run: |
           cd module4_task2
           make integration-tests
       - name: Docker lint
