@@ -18,7 +18,9 @@ RUN hadolint Dockerfile
 FROM golang:1.15.8-alpine
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache hugo
+RUN apk add --no-cache hugo curl \
+    && curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
+    && chmod +x /usr/local/bin/hadolint
 
 # hadolint ignore=DL3045
 COPY --from=builder /go/src/app .
