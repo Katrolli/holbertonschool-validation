@@ -4,7 +4,7 @@
 FROM golang:1.15.8-alpine
 
 # Set shell to bash
-# SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 
 
