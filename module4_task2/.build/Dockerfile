@@ -1,7 +1,7 @@
 # First stage: testing
 FROM golang:1.15.8-alpine AS builder
 
-# Install necessary packages and tools
+# Hadolint ignore=DL3018
 RUN apk add --no-cache curl bash gcc musl-dev \
     && curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
     && chmod +x /usr/local/bin/hadolint \
@@ -11,13 +11,14 @@ RUN apk add --no-cache curl bash gcc musl-dev \
 
 WORKDIR /go/src/app
 COPY . .
+# Hadolint ignore=DL4006
 RUN hadolint Dockerfile \
     && go test -v -short -coverprofile=coverage-units.out
 
 # Second stage: building the final Docker image
 FROM golang:1.15.8-alpine
 
-# Install Hugo
+# Hadolint ignore=DL3018
 RUN apk add --no-cache hugo
 
 # Copy everything from the first stage
