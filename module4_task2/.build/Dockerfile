@@ -3,10 +3,11 @@
 # Use an existing docker image as a base
 FROM golang:1.15.8-alpine
 
+# Install curl
+RUN apk add --no-cache curl
+
 # Set shell to bash
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
-
-
 
 # Install hadolint
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
@@ -21,6 +22,7 @@ RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/i
 
 # Install Hugo
 RUN apk add --no-cache hugo=0.87.0
+
 # Set the working directory in the container
 WORKDIR /go/src/app
 
