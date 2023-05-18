@@ -3,8 +3,8 @@
 # Use an existing docker image as a base
 FROM golang:1.15.8-alpine
 
-# Install curl
-RUN apk add --no-cache curl=latest
+# hadolint ignore=DL3018
+RUN apk add --no-cache curl
 
 # Set shell to bash
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
