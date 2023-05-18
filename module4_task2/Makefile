@@ -49,7 +49,7 @@ integration-tests: ## Run integration tests
 	$(DOCKER) go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 lint: ## Run all lint checks
-	    $(DOCKER_LINT) .build/Dockerfile
+	    $(DOCKER_LINT) .build/Dockerfile && echo "OK"
 
 docker-lint: # New target for Dockerfile linting
 	$(DOCKER_LINT) .build/Dockerfile
@@ -65,7 +65,7 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
 
 docker-tests: ## Run container structure tests
-	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config .build/cst.yml && echo "OK"
+	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config .build/cst.yml
 
 package: ## zips files
 	zip -r awesome-website.zip awesome-api ./dist
