@@ -3,11 +3,14 @@
 # Use an existing docker image as a base
 FROM golang:1.15.8-alpine
 
+# Set shell to ash (default for alpine)
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+
 # hadolint ignore=DL3018
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl bash gcc musl-dev
 
 # Set shell to bash
-SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install hadolint
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
