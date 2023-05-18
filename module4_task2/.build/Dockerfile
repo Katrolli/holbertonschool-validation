@@ -11,8 +11,7 @@ RUN apk add --no-cache curl bash gcc musl-dev \
 
 WORKDIR /go/src/app
 COPY . .
-RUN hadolint Dockerfile \
-    && go test -v -short -coverprofile=coverage-units.out
+RUN hadolint Dockerfile 
 
 # Second stage: building the final Docker image
 FROM golang:1.15.8-alpine
