@@ -30,18 +30,14 @@ jobs:
         run: |
           cd module4_task2
           make lint
-      - name: Build Docker
-        run: |
-          cd module4_task2
-          make build-docker
-      - name: Run container structure tests
-        run: |
-          cd module4_task2
-          container-structure-test test --image awesome:build --config .build/cst.yml
       - name: Run Docker tests
         run: |
           cd module4_task2
           make docker-tests
+      - name: Run container structure tests
+        run: |
+          cd module4_task2
+          container-structure-test test --image awesome:build --config .build/cst.yml
       - name: Build
         run: |
           cd module4_task2
