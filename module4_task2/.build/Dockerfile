@@ -3,11 +3,11 @@
 # Use an existing docker image as a base
 FROM golang:1.15.8-alpine
 
-# hadolint ignore=DL3018
-RUN apk add --no-cache curl
-
 # Set shell to bash
-SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# hadolint ignore=DL3018
+RUN apk add --no-cache curl bash gcc musl-dev
 
 # Install hadolint
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
@@ -20,7 +20,7 @@ RUN curl -sSfL -o /usr/local/bin/container-structure-test https://storage.google
 # Install golangci-lint
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0
 
-# hadolint ignore=DL3018
+# Install Hugo
 RUN apk add --no-cache hugo
 
 # Set the working directory in the container
