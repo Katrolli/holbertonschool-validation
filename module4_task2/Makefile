@@ -12,6 +12,9 @@ build: build-docker lint ## Generate the source code of the application to binar
 	$(DOCKER) go mod tidy
 	$(MAKE) check && make hugo-build && make go-build
 
+kot:
+	${DOCKER} make lint
+
 build-docker: ## builds docker
 	docker build -t $(DOCKER_IMAGE) .build
 
