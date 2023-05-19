@@ -10,7 +10,7 @@ COPY awesome-api /app/awesome-api
 WORKDIR /app
 
 #check
-RUN ls -l /go/src/app
+RUN ls -l 
 
 # Command to run the application
 CMD ["./awesome-api"]
