@@ -4,7 +4,7 @@
 FROM alpine:3.13
 
 # Copy the built application binary from local directory
-COPY ./module4_task3/awesome-api /app/awesome-api
+COPY awesome-api /app/awesome-api
 
 # Set the working directory in the container
 WORKDIR /app
