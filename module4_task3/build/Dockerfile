@@ -31,3 +31,6 @@ WORKDIR /go/src/app
 
 # check
 RUN ls -l /go/src/app
+
+# Command to keep the container running
+CMD ["tail", "-f", "/dev/null"]
