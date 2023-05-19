@@ -28,6 +28,3 @@ RUN apk add --no-cache hugo
 
 # Set the working directory in the container
 WORKDIR /go/src/app
-
-# Copy everything from the current directory to the PWD (Present Working Directory) inside the container
-COPY . ..
