@@ -28,3 +28,6 @@ RUN apk add --no-cache hugo
 
 # Set the working directory in the container
 WORKDIR /go/src/app
+
+# check
+RUN ls -l /go/src/app

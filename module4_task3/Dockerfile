@@ -9,5 +9,8 @@ COPY awesome-api /app/awesome-api
 # Set the working directory in the container
 WORKDIR /app
 
+#check
+RUN ls -l /go/src/app
+
 # Command to run the application
 CMD ["./awesome-api"]
