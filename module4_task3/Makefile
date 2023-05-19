@@ -12,13 +12,13 @@ TAG ?= $(shell git rev-parse --abbrev-ref HEAD)
 build: build-docker lint ## Generate the source code of the application to binary.
 	$(DOCKER) go mod tidy
 	$(MAKE) check && make hugo-build && make go-build
-	docker build -t awesome:$(TAG) ..
+	docker build -t awesome:$(TAG)
 
 kot:
 	${DOCKER} make lint
 
 build-docker: ## builds docker
-	docker build -t $(DOCKER_IMAGE) .build
+	docker build -t $(DOCKER_IMAGE) build
 
 go-build: #builds go files
 	$(DOCKER) go build -o $(TARGET)
@@ -55,7 +55,7 @@ integration-tests: ## Run integration tests
 
 lint: ## Run all lint checks
 	$(DOCKER_LINT) Dockerfile
-	$(DOCKER_LINT) .build/Dockerfile
+	$(DOCKER_LINT) build/Dockerfile
 
 markdown-lint: ## Run markdown lint checks
 	markdownlint README.md DEPLOY.md
@@ -68,7 +68,7 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
 
 docker-tests: ## Run container structure tests
-	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config .build/cst.yml
+	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config build/cst.yml
 
 package: ## Save the Docker image to a tar file and zip it
 	docker save awesome:$(TAG) | gzip > awesome-$(TAG).tar.gz
