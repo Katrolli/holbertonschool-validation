@@ -7,12 +7,12 @@ RM=rm -rf
 MAKE=make
 COVERAGE=coverage
 HUGO=hugo
-TAG ?= $(shell git describe --tags --abbrev=0)
+TAG ?= $(shell git rev-parse --abbrev-ref HEAD)
 
 build: build-docker lint ## Generate the source code of the application to binary.
 	$(DOCKER) go mod tidy
 	$(MAKE) check && make hugo-build && make go-build
-	docker build -t awesome:${TAG} .
+	docker build -t awesome:$(TAG) .
 
 kot:
 	${DOCKER} make lint
@@ -70,7 +70,8 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 docker-tests: build-docker ## Run container structure tests
 	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config build/cst.yml
 
-package: build  ## Save the Docker image to a tar file and zip it
+package: ## Save the Docker image to a tar file and zip it
+	docker build -t awesome:$(TAG) .
 	docker save awesome:$(TAG) | gzip > awesome-$(TAG).tar.gz
 
 help:	## Show this help usage.
