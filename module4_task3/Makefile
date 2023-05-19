@@ -18,7 +18,7 @@ kot:
 	${DOCKER} make lint
 
 build-docker: ## builds docker
-	docker build -t $(DOCKER_IMAGE) .
+	docker build -t $(DOCKER_IMAGE) -f build/Dockerfile .
 
 go-build: #builds go files
 	$(DOCKER) go build -o $(TARGET)
