@@ -7,7 +7,7 @@ FROM alpine:3.13
 COPY awesome-api /app/awesome-api
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /go/src/app
 
 #check
 RUN ls -l 
