@@ -37,7 +37,7 @@ jobs:
       - name: Run container structure tests
         run: |
           cd module4_task3
-          container-structure-test test --image awesome:build --config .build/cst.yml
+          container-structure-test test --image awesome:build --config build/cst.yml
       - name: Run Docker tests
         run: |
           cd module4_task3
