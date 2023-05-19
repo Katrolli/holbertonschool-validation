@@ -12,7 +12,7 @@ TAG ?= $(shell git describe --tags --abbrev=0)
 build: build-docker lint ## Generate the source code of the application to binary.
 	$(DOCKER) go mod tidy
 	$(MAKE) check && make hugo-build && make go-build
-	docker build -t awesome:$(TAG) .
+	docker build -t awesome:${TAG} .
 
 kot:
 	${DOCKER} make lint
