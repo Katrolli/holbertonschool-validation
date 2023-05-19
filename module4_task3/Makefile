@@ -54,6 +54,7 @@ integration-tests: ## Run integration tests
 	$(DOCKER) go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 lint: ## Run all lint checks
+	$(DOCKER_LINT) ../Dockerfile
 	$(DOCKER_LINT) .build/Dockerfile
 
 markdown-lint: ## Run markdown lint checks
