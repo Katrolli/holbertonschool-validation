@@ -71,7 +71,7 @@ docker-tests: build-docker ## Run container structure tests
 	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/go/src/app" -w "/go/src/app" $(DOCKER_IMAGE) container-structure-test test --image awesome:build --config build/cst.yml
 
 package: ## Save the Docker image to a tar file and zip it
-	docker build -t awesome:$(TAG) .
+	make build
 	docker save awesome:$(TAG) | gzip > awesome-$(TAG).tar.gz
 
 help:	## Show this help usage.
