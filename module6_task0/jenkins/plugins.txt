@@ -3,3 +3,5 @@ git:4.6.0
 blueocean:1.24.6
 script-security:1.13
 pipeline-utility-steps:2.8.0
+pam-auth:1.1
+matrix-project:1.4.1
