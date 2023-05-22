@@ -1,4 +1,3 @@
-# Example plugins.txt file
 git:4.6.0
 blueocean:1.24.6
 script-security:1.13
