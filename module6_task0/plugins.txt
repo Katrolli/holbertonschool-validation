@@ -1,0 +1,4 @@
+# Example plugins.txt file
+git:4.6.0
+blueocean:1.24.6
+pipeline-utility-steps:2.8.0

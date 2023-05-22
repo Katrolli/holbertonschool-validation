@@ -1,0 +1,17 @@
+# cst.yml
+schemaVersion: '2.0.0'
+commandTests:
+  - name: 'java version'
+    command: 'java'
+    args: ['-version']
+    expectedOutput: ['openjdk version "11']
+fileExistenceTests:
+  - name: 'Plugins'
+    path: '/usr/share/jenkins/ref/plugins/git.jpi'
+    shouldExist: true
+  - name: 'Plugins'
+    path: '/usr/share/jenkins/ref/plugins/blueocean.jpi'
+    shouldExist: true
+  - name: 'Plugins'
+    path: '/usr/share/jenkins/ref/plugins/pipeline-utility-steps.jpi'
+    shouldExist: true

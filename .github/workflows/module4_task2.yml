@@ -45,7 +45,7 @@ jobs:
       - name: Package
         run: make package -C module4_task2
       - name: Run
-        run: make run -C  module4_task2
+        run: make run -C module4_task2
       - name: Run Unit tests
         run: |
           cd module4_task2
